@@ -1,17 +1,11 @@
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-
 
 window.onload = init;
-var socket = new WebSocket("ws://localhost:8080/WebsocketHome/actions");
+// Map the WebSocket server endpoint to the URI defined in "Creating the WebSocket Server Endpoint".
+let socket = new WebSocket("ws://localhost:8080/WebsocketHome/actions");
 socket.onmessage = onMessage;
 
 function onMessage(event) {
-    var device = JSON.parse(event.data);
+    let device = JSON.parse(event.data);
     if (device.action === "add") {
         printDeviceElement(device);
     }
@@ -20,8 +14,8 @@ function onMessage(event) {
         //device.parentNode.removeChild(device);
     }
     if (device.action === "toggle") {
-        var node = document.getElementById(device.id);
-        var statusText = node.children[2];
+        let node = document.getElementById(device.id);
+        let statusText = node.children[2];
         if (device.status === "On") {
             statusText.innerHTML = "Status: " + device.status + " (<a href=\"#\" OnClick=toggleDevice(" + device.id + ")>Turn off</a>)";
         } else if (device.status === "Off") {
@@ -31,7 +25,7 @@ function onMessage(event) {
 }
 
 function addDevice(name, type, description) {
-    var DeviceAction = {
+    let DeviceAction = {
         action: "add",
         name: name,
         type: type,
@@ -41,8 +35,8 @@ function addDevice(name, type, description) {
 }
 
 function removeDevice(element) {
-    var id = element;
-    var DeviceAction = {
+    let id = element;
+    let DeviceAction = {
         action: "remove",
         id: id
     };
@@ -50,8 +44,8 @@ function removeDevice(element) {
 }
 
 function toggleDevice(element) {
-    var id = element;
-    var DeviceAction = {
+    let id = element;
+    let DeviceAction = {
         action: "toggle",
         id: id
     };
@@ -59,23 +53,23 @@ function toggleDevice(element) {
 }
 
 function printDeviceElement(device) {
-    var content = document.getElementById("content");
+    let content = document.getElementById("content");
     
-    var deviceDiv = document.createElement("div");
+    let deviceDiv = document.createElement("div");
     deviceDiv.setAttribute("id", device.id);
     deviceDiv.setAttribute("class", "device " + device.type);
     content.appendChild(deviceDiv);
 
-    var deviceName = document.createElement("span");
+    let deviceName = document.createElement("span");
     deviceName.setAttribute("class", "deviceName");
     deviceName.innerHTML = device.name;
     deviceDiv.appendChild(deviceName);
 
-    var deviceType = document.createElement("span");
+    let deviceType = document.createElement("span");
     deviceType.innerHTML = "<b>Type:</b> " + device.type;
     deviceDiv.appendChild(deviceType);
 
-    var deviceStatus = document.createElement("span");
+    let deviceStatus = document.createElement("span");
     if (device.status === "On") {
         deviceStatus.innerHTML = "<b>Status:</b> " + device.status + " (<a href=\"#\" OnClick=toggleDevice(" + device.id + ")>Turn off</a>)";
     } else if (device.status === "Off") {
@@ -84,11 +78,11 @@ function printDeviceElement(device) {
     }
     deviceDiv.appendChild(deviceStatus);
 
-    var deviceDescription = document.createElement("span");
+    let deviceDescription = document.createElement("span");
     deviceDescription.innerHTML = "<b>Comments:</b> " + device.description;
     deviceDiv.appendChild(deviceDescription);
 
-    var removeDevice = document.createElement("span");
+    let removeDevice = document.createElement("span");
     removeDevice.setAttribute("class", "removeDevice");
     removeDevice.innerHTML = "<a href=\"#\" OnClick=removeDevice(" + device.id + ")>Remove device</a>";
     deviceDiv.appendChild(removeDevice);
@@ -103,10 +97,10 @@ function hideForm() {
 }
 
 function formSubmit() {
-    var form = document.getElementById("addDeviceForm");
-    var name = form.elements["device_name"].value;
-    var type = form.elements["device_type"].value;
-    var description = form.elements["device_description"].value;
+    let form = document.getElementById("addDeviceForm");
+    let name = form.elements["device_name"].value;
+    let type = form.elements["device_type"].value;
+    let description = form.elements["device_description"].value;
     hideForm();
     document.getElementById("addDeviceForm").reset();
     addDevice(name, type, description);
@@ -115,3 +109,5 @@ function formSubmit() {
 function init() {
     hideForm();
 }
+
+// Use AJAX

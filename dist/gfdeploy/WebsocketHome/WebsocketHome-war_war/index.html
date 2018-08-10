@@ -5,11 +5,12 @@ setcookie($name, $value, $expire, $path, $domain, $secure, $httponly)
 <html>
     <head>
         <title>WebsocketHome</title>
-        <link rel="stylesheet" type="text/css" href="style.css">
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <script src="websocket.js"></script>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css" />
+         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <script src="websocket.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
         <script src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.js"></script>
         <script>
             window.addEventListener("load", function () {
@@ -29,28 +30,30 @@ setcookie($name, $value, $expire, $path, $domain, $secure, $httponly)
         </script>
     </head>
     <body>
-        <div>Java Websocket Home</div>
-        <p>Bienvenue to the Java WebSocket Home. Click the Add a device button to start adding devices</p>  
+        <h1>Java Websocket Home</h1>
+        <p>Bienvenue a Java WebSocket Home</p>
+        <p>Click the Add a device button to start adding devices</p>  
         <br/>
         <div id="addDevice">
             <div class="button"><a href="#" OnClick="showForm()">Add a device</a> </div>
             <form id="addDeviceForm">
                 <h3>Add a new device</h3>
-                <span>Name: <input type="text" name="device_name" id="device_name"></span>
-                <span>Type: 
+                <span>Name:<br />
+                    <input type="text" name="device_name" id="device_name">
+                </span>
+                <span>Type:<br />
                     <select id="device_type">
                         <option name="type" value="Appliance">Appliance</option>
                         <option name="type" value="Electronics">Electronics</option>
                         <option name="type" value="Lights">Lights</option>
                         <option name="type" value="Other">Other</option>
-                    </select></span>
-
+                    </select>
+                </span>
                 <span>Description:<br />
                     <textarea name="description" id="device_description" rows="2" cols="50"></textarea>
                 </span>
-
-                <input type="button" class="button" value="Add" onclick=formSubmit()>
-                <input type="reset" class="button" value="Cancel" onclick=hideForm()>
+                <input type="button" class="button" value="Add" onclick="formSubmit()">
+                <input type="reset" class="button" value="Cancel" onclick="hideForm()">
             </form>
         </div>
         <br/>
