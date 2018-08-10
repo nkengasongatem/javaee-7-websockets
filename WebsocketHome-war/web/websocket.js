@@ -1,4 +1,6 @@
-
+/*
+ * WebSocket Client endpoint
+ */
 window.onload = init;
 // Map the WebSocket server endpoint to the URI defined in "Creating the WebSocket Server Endpoint".
 let socket = new WebSocket("ws://localhost:15795/WebsocketHome-war/actions");

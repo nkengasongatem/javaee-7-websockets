@@ -69,4 +69,5 @@ public class DeviceWebSocketServer {
     
 }
 
-// WebSocket server endpoint.
+// WebSocket server endpoint - gets triggered when clients (WebSocket Client endpoints) connect to it
+// HTTP Session: it encapsulates the interaction between two endpoints (peers).
