@@ -70,25 +70,25 @@ function printDeviceElement(device) {
     deviceDiv.appendChild(deviceName);
 
     let deviceType = document.createElement("span");
-    deviceType.innerHTML = "<b>Type:</b> " + device.type;
+    deviceType.innerHTML = "&nbsp;<b>Type:</b> " + device.type;
     deviceDiv.appendChild(deviceType);
 
     let deviceStatus = document.createElement("span");
     if (device.status === "On") {
-        deviceStatus.innerHTML = "<b>Status:</b> " + device.status + " (<a href=\"#\" OnClick=toggleDevice(" + device.id + ")>Turn off</a>)";
+        deviceStatus.innerHTML = "&nbsp;<b>Status:</b> " + device.status + " (<a href=\"#\" OnClick=toggleDevice(" + device.id + ")>Turn off</a>)";
     } else if (device.status === "Off") {
-        deviceStatus.innerHTML = "<b>Status:</b> " + device.status + " (<a href=\"#\" OnClick=toggleDevice(" + device.id + ")>Turn on</a>)";
+        deviceStatus.innerHTML = "&nbsp;<b>Status:</b> " + device.status + " (<a href=\"#\" OnClick=toggleDevice(" + device.id + ")>Turn on</a>)";
         //deviceDiv.setAttribute("class", "device off");
     }
     deviceDiv.appendChild(deviceStatus);
 
     let deviceDescription = document.createElement("span");
-    deviceDescription.innerHTML = "<b>Comments:</b> " + device.description;
+    deviceDescription.innerHTML = "&nbsp;<b>Comments:</b> " + device.description;
     deviceDiv.appendChild(deviceDescription);
 
     let removeDevice = document.createElement("span");
     removeDevice.setAttribute("class", "removeDevice");
-    removeDevice.innerHTML = "<a href=\"#\" OnClick=removeDevice(" + device.id + ")>Remove device</a>";
+    removeDevice.innerHTML = "&nbsp;<a href=\"#\" OnClick=removeDevice(" + device.id + ")>Remove device</a>";
     deviceDiv.appendChild(removeDevice);
 }
 

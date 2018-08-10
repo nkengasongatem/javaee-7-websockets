@@ -7,7 +7,7 @@ setcookie($name, $value, $expire, $path, $domain, $secure, $httponly)
         <title>WebsocketHome</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css" />
-         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
         <link rel="stylesheet" type="text/css" href="style.css">
         <script src="websocket.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
@@ -29,35 +29,40 @@ setcookie($name, $value, $expire, $path, $domain, $secure, $httponly)
             });
         </script>
     </head>
-    <body>
-        <h1>Java Websocket Home</h1>
-        <p>Bienvenue a Java WebSocket Home</p>
+    <body style="text-align: center;">
+        <div class="container blue-text lighten-3"><h1>Java Websocket Home</h1></div>
+        <p class="teal-text lighten-3">Bienvenue a Java WebSocket Home</p>
         <p>Click the Add a device button to start adding devices</p>  
         <br/>
         <div id="addDevice">
             <div class="button"><a href="#" OnClick="showForm()">Add a device</a> </div>
-            <form id="addDeviceForm">
-                <h3>Add a new device</h3>
-                <span>Name:
-                    <input type="text" name="device_name" id="device_name">
-                </span><br /><br />
-                <span>Type:
-                    <select id="device_type">
-                        <option name="type" value="Appliance">Appliance</option>
-                        <option name="type" value="Electronics">Electronics</option>
-                        <option name="type" value="Lights">Lights</option>
-                        <option name="type" value="Other">Other</option>
-                    </select>
-                </span><br /><br />
-                <span>Description:<br />
-                    <textarea name="description" id="device_description" rows="2" cols="50"></textarea>
-                </span><br /><br />
-                <input type="button" class="button" value="Add" onclick="formSubmit()">
-                <input type="reset" class="button" value="Cancel" onclick="hideForm()">
-            </form>
+            <div class="row">
+                <div class="col m4 s12"></div>
+                <div class="col m4 s12 myform">
+                    <form id="addDeviceForm">
+                        <h3>Add a new device</h3>
+                        <span>Name:
+                            <input type="text" name="device_name" id="device_name">
+                        </span><br /><br />
+                        <span>Type:
+                            <select id="device_type" class="browser-default">
+                                <option name="type" value="Appliance">Appliance</option>
+                                <option name="type" value="Electronics">Electronics</option>
+                                <option name="type" value="Lights">Lights</option>
+                                <option name="type" value="Other">Other</option>
+                            </select>
+                        </span><br /><br />
+                        <span>Description:<br />
+                            <textarea name="description" id="device_description" rows="2" cols="50"></textarea>
+                        </span><br /><br />
+                        <input type="button" class="button waves-effect waves-light btn-small blue lighten-3" value="Add" onclick="formSubmit()">
+                        <input type="reset" class="button waves-effect waves-light btn-small blue lighten-3" value="Cancel" onclick="hideForm()">
+                    </form>
+                </div>
+            </div>
         </div>
         <br/>
-        <h3>Currently connected devices:</h3>
+        <h5>Currently connected devices:</h5>
         <div id="content"></div>
     </body>
 </html>

@@ -1,0 +1,12 @@
+.btn-small {
+    margin: 0px 10px 25px!important;
+}
+
+.myform {
+    border-radius: 10px;
+    border: 1px solid #2196F3;
+}
+
+#device_name:focused {
+    border-bottom-color: #2196F3;
+}
