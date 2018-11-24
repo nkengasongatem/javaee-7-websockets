@@ -120,5 +120,5 @@ public class DeviceSessionHandler {
         return addMessage;
     }
 }
-
+//NOTES::
 // This class handles the sessions that are connected to the websocket server.

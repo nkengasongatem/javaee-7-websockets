@@ -3,7 +3,7 @@
  */
 window.onload = init;
 // Map the WebSocket server endpoint to the URI defined in "Creating the WebSocket Server Endpoint".
-let socket = new WebSocket("ws://localhost:15795/WebsocketHome-war/actions");
+let socket = new WebSocket("ws://localhost:26063/WebsocketHome-war/actions");
 //The onmessage event captures the events sent *FROM* the WebSocket server (in JSON) and processes those actions. 
 //In this application, these actions are usually rendering changes in the client UI.
 socket.onmessage = onMessage;
@@ -114,4 +114,4 @@ function init() {
     hideForm();
 }
 
-// Use AJAX too? :-)
+// Use AJAX to verify fields as user fills them
